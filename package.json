@@ -7,7 +7,8 @@
     "start:bun": "bun ./sockets.js"
   },
   "dependencies": {
-    "socket.io-client": "^4.7.5"
+    "socket.io-client": "^4.7.5",
+    "tesseract.js": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.13.0"

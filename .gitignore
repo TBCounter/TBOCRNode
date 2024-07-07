@@ -140,3 +140,6 @@ screenshots/*.png
 
 screenshots/chests/*.png
 screenshots/triumphchests/*.png
+
+
+tessdata/*.traineddata
