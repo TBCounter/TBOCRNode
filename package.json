@@ -1,0 +1,15 @@
+{
+  "name": "tbocrnode",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --env-file=.env ./sockets.js",
+    "start:bun": "bun ./sockets.js"
+  },
+  "dependencies": {
+    "socket.io-client": "^4.7.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.13.0"
+  }
+}
