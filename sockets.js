@@ -1,5 +1,5 @@
 const io = require("socket.io-client");
-
+const { read } = require("./worker")
 
 
 const socket = io(process.env.API_URL + `/ocr`, {
@@ -20,3 +20,17 @@ socket.on("connect_error", (error) => {
     console.log(process.env.API_URL + `/ocr`);
     console.error("Connection error:", error);
 });
+
+socket.on("process", (chest) => {
+    //do processing
+    try {
+
+        const result = read(chest.url)
+        socket.emit('process_response', { chestId: chest.id, ...result, status: "PROCESSED" })
+    }
+
+    catch {
+        socket.emit('process_response', { chestId: chest.id, status: 'ERROR' })
+    }
+
+})
