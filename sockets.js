@@ -23,14 +23,6 @@ socket.on("connect_error", (error) => {
 
 socket.on("process", (chest) => {
     //do processing
-    try {
-
-        const result = read(chest.url)
-        socket.emit('process_response', { chestId: chest.id, ...result, status: "PROCESSED" })
-    }
-
-    catch {
-        socket.emit('process_response', { chestId: chest.id, status: 'ERROR' })
-    }
-
+    const result = read(chest.url)
+    socket.emit('process_response', { chestId: chest.id, ...result })
 })
