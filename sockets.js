@@ -21,8 +21,15 @@ socket.on("connect_error", (error) => {
     console.error("Connection error:", error);
 });
 
-socket.on("process", (chest) => {
+socket.on("process", async (chest) => {
     //do processing
-    const result = read(chest.url)
-    socket.emit('process_response', { chestId: chest.id, ...result })
+    try {
+        let result = await read(chest.url) // let?
+        let resultObject = JSON.stringify(result)
+        console.log("this is result: " + resultObject)
+        socket.emit('process_response', { chestId: chest._id, ...resultObject })
+    } catch (err) {
+        console.log(err)
+    }
+    
 })
