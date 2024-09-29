@@ -1,5 +1,5 @@
 const io = require("socket.io-client");
-const { read, createNewWorker } = require("./worker")
+const { read, createNewWorker, terminateWorker } = require("./worker")
 
 
 const socket = io(process.env.API_URL + `/ocr`, {

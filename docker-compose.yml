@@ -1,0 +1,7 @@
+services:
+  ocr:
+    image: omega1996/tbcounter-ocr
+    volumes:
+      - ./tessdata:/usr/src/app/tessdata
+    env_file:
+      - .env
