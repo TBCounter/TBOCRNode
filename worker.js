@@ -40,7 +40,9 @@ async function createNewWorker() {
 }
 
 async function read(url) {
-
+    // скачать изображение в оперативу
+    // предобработать
+    // передать воркеру
 
     const values = {};
 

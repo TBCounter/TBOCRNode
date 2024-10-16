@@ -3,7 +3,9 @@ const { read, createNewWorker, terminateWorker } = require("./worker")
 
 
 const socket = io(process.env.API_URL + `/ocr`, {
-    transports: ["websocket"], // Использование WebSocket транспорта
+  transports: ["websocket"], // Использование WebSocket транспорта
+  pingTimeout: 60000, // Время ожидания пинга в миллисекундах (60 секунд)
+  pingInterval: 25000, // Интервал между пингами (25 секунд)
 });
 
 socket.on("connect", async () => {
