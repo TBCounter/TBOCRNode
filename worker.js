@@ -46,9 +46,11 @@ async function read(url) {
   const values = {};
 
   for (let rectangle of rectangles) {
-    const {
-      data: { text },
-    } = await worker.recognize(url, { rectangle });
+
+    const { data: { text } } = await worker.recognize(url, { rectangle }).catch((e) => {
+      console.log(e)
+    });
+
     if (["name", "source"].includes(rectangle.type)) {
       const splittedText = text.split(":");
       if (splittedText[1]) {
